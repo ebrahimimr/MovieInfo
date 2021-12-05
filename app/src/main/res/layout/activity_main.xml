@@ -12,6 +12,42 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/main">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txtSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"/>
+
+                <ImageView
+                    android:id="@+id/imgSearch"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="Search"
+                    android:src="@drawable/ic_launcher_background"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
     </LinearLayout>
 
 
@@ -21,6 +57,10 @@
         android:layout_gravity="left"
         android:background="@color/menu"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test"/>
     </LinearLayout>
 
 

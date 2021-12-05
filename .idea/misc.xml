@@ -11,6 +11,8 @@
         <entry key="..\:/Android/movieinfo/app/src/main/res/layout/toolbar.xml" value="0.21875" />
         <entry key="..\:/Android/movieinfo/app/src/main/res/menu/navigation_menu.xml" value="0.2609375" />
         <entry key="..\:/Android/movieinfo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.125" />
+        <entry key="..\:/Users/Mahsa/AndroidStudioProjects/MovieInfo/app/src/main/res/layout/activity_movie_detail.xml" value="0.1921875" />
+        <entry key="..\:/Users/Mahsa/AndroidStudioProjects/MovieInfo/app/src/main/res/layout/recycler_movie_item.xml" value="0.22" />
       </map>
     </option>
   </component>

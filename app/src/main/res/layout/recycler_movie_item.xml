@@ -2,24 +2,36 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/crdView"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:layout_margin="1dp"
-    app:cardBackgroundColor="#e9edc9"
+    app:cardBackgroundColor="@color/menu"
     app:cardCornerRadius="10dp"
     app:cardElevation="3dp"
     app:cardMaxElevation="6dp"
     app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true"
-    android:id="@+id/crdView">
+    app:cardUseCompatPadding="true">
 
-
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_marginLeft="8dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="5dp"
+        app:cardBackgroundColor="@color/menu"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="6dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
     <ImageView
         android:id="@+id/imgPoster"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
-        />
+        android:scaleType="fitXY"
+      />
+    </androidx.cardview.widget.CardView>
 
 
     <TextView
@@ -27,9 +39,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="25dp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -37,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="50dp"
-        android:textSize="20sp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="70dp"
+        android:textSize="12sp"
         android:textStyle="bold" />
 
     <TextView
@@ -47,19 +59,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="80dp"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="100dp"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="110dp"
-        android:textSize="20sp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="130dp"
+        android:textSize="12sp"
         android:textStyle="bold" />
 
 </androidx.cardview.widget.CardView>

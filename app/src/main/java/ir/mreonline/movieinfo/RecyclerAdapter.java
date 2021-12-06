@@ -61,10 +61,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHo
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         try {
 
-            holder.txtTitle.setText(moviesearch.getSearch().get(position).getTitle());
-            holder.txtType.setText(moviesearch.getSearch().get(position).getType());
-            holder.txtImdbID.setText(moviesearch.getSearch().get(position).getImdbID());
-            holder.txtYear.setText(moviesearch.getSearch().get(position).getYear());
+            holder.txtTitle.setText("Title : "+ moviesearch.getSearch().get(position).getTitle());
+            holder.txtType.setText("Type : "+ moviesearch.getSearch().get(position).getType());
+            holder.txtImdbID.setText("ImdbID : "+ moviesearch.getSearch().get(position).getImdbID());
+            holder.txtYear.setText("Year : "+ moviesearch.getSearch().get(position).getYear());
             Glide.with(holder.itemView).load(moviesearch.getSearch().get(position).getPoster().toString()).into(holder.imgPoster);
 
             holder.crdView.setOnClickListener(new View.OnClickListener() {

@@ -4,16 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btnSearch = findViewById(R.id.btnSearch);
+        ImageButton btnSearch = findViewById(R.id.btnSearch);
         TextView txtMode=  findViewById(R.id.txtMode);
         txtMode.setText("Online Search");
 
@@ -64,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_online:
                         txtMode.setText("Online Search");
                         mode = 0;
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.nav_offline:
                         txtMode.setText("Local DataBase Search");
                         mode = 1;
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
                 }
@@ -75,9 +80,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        //float dpHeight = displayMetrics.heightPixels / displayMetrics.density;
+        //float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
         EditText txtSearch = findViewById(R.id.txtSearch);
-        txtSearch.setText("car");
+
+
 
         MovieSearch moviesearch = new MovieSearch();
 

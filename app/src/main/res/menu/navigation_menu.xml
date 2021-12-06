@@ -2,10 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="HardcodedText">
+    <group android:checkableBehavior="single">
     <item
         android:id="@+id/nav_online"
-        android:title="Online Search" />
+        android:title="Online Search"
+        android:icon="@drawable/ic_local_movies_black_24dp"/>
+
     <item
         android:id="@+id/nav_offline"
-        android:title="Offline Search" />
+        android:title="Offline Search"
+        android:icon="@drawable/ic_photo_library_black_24dp"/>
+    </group>
 </menu>

@@ -27,10 +27,12 @@ import ir.mreonline.movieinfo.models.MovieSearch;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHolder> {
 
     MovieSearch moviesearch;
+    Integer mode;
     private AdapterView.OnItemClickListener mOnItemClickListener;
 
-    RecyclerAdapter(MovieSearch V) {
+    RecyclerAdapter(MovieSearch V,Integer M) {
         moviesearch = V;
+        mode= M;
     }
 
     public interface OnItemClickListener {
@@ -72,6 +74,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.viewHo
 
                     Integer pos = holder.getAdapterPosition();
                     intent.putExtra("imdbID",moviesearch.getSearch().get(pos).getImdbID());
+                    intent.putExtra("mode",mode);
                     startActivity(holder.container.getContext(),intent,null);
                 }
             });

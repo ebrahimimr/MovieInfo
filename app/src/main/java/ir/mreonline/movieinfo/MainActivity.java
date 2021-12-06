@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.QuickContactBadge;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -35,7 +36,7 @@ import ir.mreonline.movieinfo.models.MovieSearch;
 //http://www.omdbapi.com/?i=tt0075809&apikey=ffd51f39
 public class MainActivity extends AppCompatActivity {
     //0 online 1 offline
-    public  int mode =0;
+    public int mode = 0;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -43,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Button btnSearch = findViewById(R.id.btnSearch);
+        TextView txtMode=  findViewById(R.id.txtMode);
+        txtMode.setText("Online Search");
 
         drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView  navigationview =(NavigationView) findViewById(R.id.navigation_view);
+        NavigationView navigationview = (NavigationView) findViewById(R.id.navigation_view);
         navigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -59,10 +62,12 @@ public class MainActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
                 switch (itemId) {
                     case R.id.nav_online:
-                        mode =0;
+                        txtMode.setText("Online Search");
+                        mode = 0;
                         break;
                     case R.id.nav_offline:
-                        mode =1;
+                        txtMode.setText("Local DataBase Search");
+                        mode = 1;
                         break;
 
                 }
@@ -71,38 +76,51 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        EditText txtSearch =findViewById(R.id.txtSearch);
+        EditText txtSearch = findViewById(R.id.txtSearch);
         txtSearch.setText("car");
-        Button btnSearch=findViewById(R.id.btnSearch);
-        MovieSearch moviesearch =new MovieSearch();
+
+        MovieSearch moviesearch = new MovieSearch();
 
 
-        RecyclerView recycler =findViewById(R.id.recycler);
-        LinearLayoutManager manager =new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        RecyclerView recycler = findViewById(R.id.recycler);
+        LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recycler.setLayoutManager(manager);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url ="http://www.omdbapi.com/?s="+txtSearch.getText()+"&apikey=ffd51f39";
-                AsyncHttpClient client =new AsyncHttpClient();
-                client.get(url,new JsonHttpResponseHandler(){
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        super.onSuccess(statusCode, headers, response);
-                        Gson gson =new Gson();
-                        MovieSearch moviesearch = gson.fromJson(response.toString(),MovieSearch.class);
-                        RecyclerAdapter adapter = new RecyclerAdapter(moviesearch);
-                        recycler.setAdapter(adapter);
-                    }
+                if (mode == 0) {
+                    String url = "http://www.omdbapi.com/?s=" + txtSearch.getText() + "&apikey=ffd51f39";
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    client.get(url, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            super.onSuccess(statusCode, headers, response);
+                            Gson gson = new Gson();
+                            MovieSearch moviesearch = gson.fromJson(response.toString(), MovieSearch.class);
+                            RecyclerAdapter adapter = new RecyclerAdapter(moviesearch,mode);
+                            recycler.setAdapter(adapter);
+                        }
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        super.onFailure(statusCode, headers, throwable, errorResponse);
-                    }
-                });
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            super.onFailure(statusCode, headers, throwable, errorResponse);
+                        }
+                    });
+                }
+                if (mode == 1)
+                {
+                    SQLiteHelper helper = new SQLiteHelper(getApplicationContext(),"MovieInfo",null,1);
+                    RecyclerAdapter adapter = new RecyclerAdapter(helper.GetMoviesByTitle(txtSearch.getText().toString()) ,mode);
+                    recycler.setAdapter(adapter);
+                }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
 

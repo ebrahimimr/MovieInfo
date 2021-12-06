@@ -7,156 +7,189 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crdViewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/menu"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="6dp">
 
-    <ImageView
-        android:id="@+id/imgDetailPoster"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:scaleType="centerCrop"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAction"
-        android:text="Save Local"/>
+        <ImageView
+            android:id="@+id/imgDetailPoster"
+            android:layout_width="150dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp" />
 
-    <TextView
-        android:id="@+id/txtDetailTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailYear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailRated"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailReleased"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailRuntime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailGenre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailDirector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailWriter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailActors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailPlot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailCountry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailAwards"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailMetascore"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailImdbRating"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailImdbVotes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailImdbID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailDVD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailBoxOffice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailProduction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-    <TextView
-        android:id="@+id/txtDetailWebsite"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/btnAction"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="255dp"
+            android:text="Save Local" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtDetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="@id/btnAction" />
+
+            <TextView
+                android:id="@+id/txtDetailYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailRated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailReleased"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailRuntime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp" />
+            <TextView
+                android:id="@+id/txtDetailGenre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="315dp"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/txtDetailDirector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailWriter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailActors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailPlot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailAwards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailMetascore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailImdbRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailImdbVotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailImdbID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailDVD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailBoxOffice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailProduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:id="@+id/txtDetailWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </ScrollView>

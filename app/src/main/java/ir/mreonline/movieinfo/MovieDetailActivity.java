@@ -42,10 +42,10 @@ public class MovieDetailActivity extends AppCompatActivity {
             SQLiteHelper helpr = new SQLiteHelper(getApplicationContext(), "MovieInfo", null, 1);
             movie = helpr.GetMoviesByimdbId(imdbID);
             fillComponent(movie);
-            btnAction.setText("Delete from Local Database");
+            btnAction.setText("Delete From Database");
         }
         if (mode == 0) {
-            btnAction.setText("Save movie in local Database");
+            btnAction.setText("Save Movie Local");
             String url = "http://www.omdbapi.com/?i=" + imdbID + "&apikey=ffd51f39";
             AsyncHttpClient client = new AsyncHttpClient();
             client.get(url, new JsonHttpResponseHandler() {

@@ -15,7 +15,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.QuickContactBadge;
+import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -25,6 +27,7 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 import ir.mreonline.movieinfo.models.MovieSearch;
 
+//https://www.geeksforgeeks.org/navigation-drawer-in-android/
 //git remote add origin https://github.com/ebrahimimr/MovieInfo.git
 //git branch -M main
 //git push -u origin main
@@ -33,11 +36,40 @@ import ir.mreonline.movieinfo.models.MovieSearch;
 public class MainActivity extends AppCompatActivity {
     //0 online 1 offline
     public  int mode =0;
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        NavigationView  navigationview =(NavigationView) findViewById(R.id.navigation_view);
+        navigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //Log.d("Tagm", item.getTitle().toString());
+                int itemId = item.getItemId();
+                switch (itemId) {
+                    case R.id.nav_online:
+                        mode =0;
+                        break;
+                    case R.id.nav_offline:
+                        mode =1;
+                        break;
+
+                }
+                return false;
+            }
+        });
+
 
         EditText txtSearch =findViewById(R.id.txtSearch);
         txtSearch.setText("car");
@@ -71,5 +103,15 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

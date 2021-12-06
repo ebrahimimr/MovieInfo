@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/drawer_layout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,23 +37,21 @@
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
+            android:background="@color/menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="300dp"
+    <!--this the navigation view which draws
+         and shows the navigation drawer-->
+    <!--include the menu created in the menu folder-->
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:background="@color/menu"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Test" />
-    </LinearLayout>
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu"
+        android:id="@+id/navigation_view"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

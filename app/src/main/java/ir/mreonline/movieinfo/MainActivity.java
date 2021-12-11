@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ImageButton btnSearch = findViewById(R.id.btnSearch);
         TextView txtMode=  findViewById(R.id.txtMode);
         txtMode.setText("Online Search");
